@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Workshop">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="style/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <!-- App module -->
+    <script type="text/javascript" src="app2.js"></script>
+</head>
+<body>
+
+<div class="container" ng-controller="ClubController">
+    <div class="header clearfix text-center">
+        <h1 class="text-muted">Club List</h1>
+    </div>
+
+    <div class="row">
+        <div class="col col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Club List</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Building Name</a></th>
+                                <th>Building Number</a></th>
+                                <th>City</a></th>
+                                <th>Street</a></th>
+                                <th>Phone</a></th>
+                                <th>Street</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="place in club">
+                                <td>{{place.buildingName}}</td>
+                                <td>{{place.buildingNumber}}</td>
+                                <td>{{place.city}}</td>
+                                <td>{{place.name}}</td>
+                                <td>{{place.phone}}</td>
+                                <td>{{place.street}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col col-xs-8">
+        <div class="panel-body">
+            <label class="control-label"><h3>New Club</h3></label>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="placeBuildingName" class="col-sm-2 control-label">Building Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="placeBuildingName" placeholder="Building Name" ng-model="newPlace.buildingName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="placeBuildingNumber" class="col-sm-2 control-label">Building Number</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="placeBuildingNumber" placeholder="Building Number" ng-model="newPlace.buildingNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="placeCity" class="col-sm-2 control-label">City</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="placeCity" placeholder="Country" ng-model="newPlace.city">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="placeName" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="placeName" placeholder="Name" ng-model="newPlace.name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="placePhone" class="col-sm-2 control-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="placePhone" placeholder="Phone" ng-model="newPlace.phone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="placeStreet" class="col-sm-2 control-label">Street</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="placeStreet" placeholder="Street" ng-model="newPlace.street">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="button" class="btn btn-default" ng-click="addPlace(newPlace)">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Workshop">
+<head>
+    <meta charset="UTF-8">
+    <title>Workshop</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="style/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+
+    <!-- App module -->
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+<div class="container" ng-controller="PeopleController">
+    <div class="header clearfix text-center">
+        <h1 class="text-muted">People Controll</h1>
+    </div>
+
+    <div class="row">
+        <div class="col col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">People List</div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th><i class="fa fa-sort"></i><a href ng-click="reorder('Name')">Name</a></th>
+                                <th><i class="fa fa-sort"></i><a href ng-click="reorder('City')">City</a></th>
+                                <th><i class="fa fa-sort"></i><a href ng-click="reorder('Country')">Country</a></th>
+                                <th>Remove</th>
+                            </tr>
+                            <tr>
+                                <th><input ng-model="filterValue.Name"></th>
+                                <th><input ng-model="filterValue.City"></th>
+                                <th><input ng-model="filterValue.Country"></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="person in people | orderBy:sortingField:desc | filter:filterValue">
+                                <td>{{person.Name}}</td>
+                                <td>{{person.City}}</td>
+                                <td>{{person.Country}}</td>
+                                <td><button ng-click="remove(person)">Remove</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col col-xs-8">
+            <div class="panel-body">
+                <label class="control-label"><h3>New Person</h3></label>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="personName" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="personName" placeholder="Name" ng-model="newItem.Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="personCity" class="col-sm-2 control-label">City</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="personCity" placeholder="City" ng-model="newItem.City">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="personCountry" class="col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="personCountry" placeholder="Country" ng-model="newItem.Country">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="button" class="btn btn-default" ng-click="addItem(newItem)">Add</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col col-xs-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">People List</div>
+                <div class="panel-body">
+                    <div class="col col-xs-12">
+                        <ul class="list-group">
+                            <!--<span>Present Column Visibility</span><input type="checkbox" ng-model="PresentColumnVisibility">-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
