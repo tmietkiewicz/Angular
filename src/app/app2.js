@@ -19,9 +19,11 @@
             })
     });
 
-    app.controller('ClubController', function ($scope,$http){
+    app.controller('ClubController', function ($scope,$rootScope,$http){
 
-
+    $rootScope.$on('loggedIn', function(){
+        $scope.loggedIn = true;
+    });
         //getPlaces();
 
     });
