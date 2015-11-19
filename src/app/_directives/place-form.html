@@ -1,0 +1,105 @@
+<div class="header clearfix text-center">
+    <h1 class="text-muted">New Club</h1>
+</div>
+
+<div class="col col-xs-8">
+    <div class="panel-body" ng-show="!updateModeFlag">
+        <label class="control-label"><h3>New Club</h3></label>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="placeBuildingName" class="col-sm-2 control-label">Building Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeBuildingName" placeholder="Building Name" ng-model="newPlace.buildingName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placeBuildingNumber" class="col-sm-2 control-label">Building Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeBuildingNumber" placeholder="Building Number" ng-model="newPlace.buildingNumber">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="City" class="col-sm-2 control-label">City</label>
+                <div class="col-sm-10">
+                    <select class="form-control" ng-model="newPlace.city" ng-options="city.city group by city.hasTram for city in cities"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placeName" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeName" placeholder="Name" ng-model="newPlace.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placePhone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placePhone" placeholder="Phone" ng-model="newPlace.phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placeStreet" class="col-sm-2 control-label">Street</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeStreet" placeholder="Street" ng-model="newPlace.street">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-default" ng-click="addPlace(newPlace)">Add</button>
+                    <button type="button" class="btn btn-default" ng-click="updateModeCancel(place)">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="panel-body" ng-show="updateModeFlag">
+        <label class="control-label"><h3>Edit Club</h3></label>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="placeBuildingName1" class="col-sm-2 control-label">Building Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeBuildingName1" placeholder="Building Name" ng-model="placeToUpdate.buildingName">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placeBuildingNumber1" class="col-sm-2 control-label">Building Number</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeBuildingNumber1" placeholder="Building Number" ng-model="placeToUpdate.buildingNumber">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="City" class="col-sm-2 control-label">City</label>
+                <div class="col-sm-10">
+                    <select class="form-control" ng-model="newPlace.city" ng-options="city.city group by hasTram for city in cities"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placeName1" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeName1" placeholder="Name" ng-model="placeToUpdate.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placePhone1" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placePhone1" placeholder="Phone" ng-model="placeToUpdate.phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="placeStreet1" class="col-sm-2 control-label">Street</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="placeStreet1" placeholder="Street" ng-model="placeToUpdate.street">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-default" ng-click="updatePlace(placeToUpdate)">Add</button>
+                    <button type="button" class="btn btn-default" ng-click="updateModeCancel(place)">Cancel</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -3,11 +3,11 @@ var app = angular.module('Workshop', [])
     app.controller('PeopleController', function ($scope,$http){
         $scope.people = [];
 
-        $http.get('http://www.w3schools.com/angular/customers.php')
+        $http.get('http://localhost:8080/books-filter/app_dev.php?format=pretty&keywords[]=Access&keywords[]=Word')
             .then(function(response){
-                $scope.people = response.data.records;
-               console.log(response);
-            });
+                console.log(response);
+                $scope.jsons = response.data;
+            })
 
         $scope.reorder = function (field) {
             $scope.desc = $scope.sortingField === field ? !$scope.desc : false;

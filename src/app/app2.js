@@ -1,23 +1,29 @@
 (function(){
-    var app = angular.module('Workshop', [])
+    var app = angular.module('Workshop', ['ui.router']);
+
+    app.config(function($stateProvider,$urlRouterProvider){
+        $urlRouterProvider.otherwise('/view3');
+
+        $stateProvider
+            .state('view1',{
+                url:'/view1',
+                templateUrl:'views/view1.html'
+            })
+            .state('view2',{
+                url:'/view2',
+                templateUrl:'views/view2.html'
+            })
+            .state('view3',{
+                url:'/view3',
+                templateUrl:'views/view3.html'
+            })
+    });
+
     app.controller('ClubController', function ($scope,$http){
 
-        $http.get('http://188.226.184.180:3000/api/places')
-            .then(function(response){
-                $scope.club = response.data;
-                console.log(response);
-            });
 
-        $http.post('http://188.226.184.180:3000/api/places', place)
-            .then(function(response){
-                console.log(response);
-            });
+        //getPlaces();
 
-        $scope.newPlace = {buildingName:'',buildingNumber:'',city:'',name:'',phone:'',street:''};
-        $scope.addPlace = function (item){
-            var newPlace = angular.copy(item);
-            $scope.club.push(newPlace);
-        }
     });
 })();
 
